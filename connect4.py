@@ -4,7 +4,6 @@ import pygame
 import sys
 import math
 
-
 ROW_COUNT = 6 #amount of rows 
 COLUMN_COUNT = 7 # amount of columns 
 
@@ -100,10 +99,12 @@ myfont = pygame.font.SysFont("gabriola", 120)
 
 #loop starts 
 while not game_over:
-    
+ #   game_over = False
+
     for event in pygame.event.get():
       # properly shuts down the game 
         if event.type == pygame.QUIT:
+          import menu
           sys.exit()
 
         # addtional feature at the top to show what player it is
@@ -169,9 +170,8 @@ while not game_over:
                             label = myfont.render("Player 2 wins!!", 1, PURPLE)
                             screen.blit(label, (90, 5))
                             pygame.display.update()
-
                             game_over = True
+                            pygame.quit()
 
-
-            if game_over:
-               pygame.time.wait(5000)
+        #    if game_over:
+         #      pygame.time.wait(3000)
